@@ -19,15 +19,13 @@ export type AnswerObject = {
 
 const TOTAL_QUESTIONS = 10;
 
-const App = () => {
+const App: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [questions, setQuestions] = useState<QuestionsState[]>([]);
   const [number, setNumber] = useState(0);
   const [userAnswers, setUserAnswers] = useState<AnswerObject[]>([]);
   const [score, setScore] = useState(0);
   const [gameOver, setGameOver] = useState(true);
-
-  console.log(questions);
 
   const startTrivia = async () => {
     setLoading(true);
@@ -44,7 +42,7 @@ const App = () => {
     setLoading(false);
   };
 
-  const checkAnswer = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const checkAnswer = (e: any) => {
     if (!gameOver) {
       //users answer
       const answer = e.currentTarget.value;
